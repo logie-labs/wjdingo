@@ -36,21 +36,21 @@ const reasons = [
 
 export function WhyChooseSection() {
   return (
-    <div className="flex items-center justify-center flex-col gap-6 w-full mt-10 bg-foreground/5 p-8 min-[800px]:p-12 rounded-2xl">
+    <div className="flex items-center justify-center flex-col gap-5 min-[800px]:gap-6 w-full mt-8 min-[800px]:mt-10 bg-foreground/5 p-5 min-[480px]:p-6 min-[800px]:p-12 rounded-xl min-[800px]:rounded-2xl">
       <motion.div
         initial={{ opacity: 0, transform: "translateY(30px)", filter: "blur(10px)" }}
         animate={{ opacity: 1, transform: "translateY(0px)", filter: "blur(0px)" }}
         transition={{ duration: 1, delay: 0.45, ease: [0.7, -0.63, 0.24, 0.99] }}
         viewport={{ once: true }}
-        className="flex flex-col items-center justify-center gap-4 text-center"
+        className="flex flex-col items-center justify-center gap-3 min-[800px]:gap-4 text-center"
       >
-        <h3 className="text-2xl min-[800px]:text-3xl font-bold">Why Homeowners Choose Us</h3>
-        <p className="text-lg opacity-70 max-w-3xl">
+        <h3 className="text-xl min-[480px]:text-2xl min-[800px]:text-3xl leading-tight font-bold">Why Homeowners Choose Us</h3>
+        <p className="text-sm min-[480px]:text-base min-[800px]:text-lg opacity-70 max-w-3xl">
           We combine consistent service, careful workmanship, and fast communication so your outdoor space gets better without the usual hassle.
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 min-[800px]:grid-cols-2 min-[1200px]:grid-cols-4 gap-4 w-full">
+      <div className="grid grid-cols-1 min-[800px]:grid-cols-2 min-[1200px]:grid-cols-4 gap-3 min-[480px]:gap-4 w-full">
         {reasons.map((reason, idx) => {
           const Icon = reason.icon;
 
@@ -65,13 +65,13 @@ export function WhyChooseSection() {
             >
               <Card className="h-full">
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Icon className="opacity-30" />
+                  <CardTitle className="flex items-start gap-2 text-base min-[800px]:text-lg leading-snug">
+                    <Icon className="opacity-30 size-5 shrink-0 mt-0.5" />
                     {reason.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-base">{reason.description}</CardDescription>
+                  <CardDescription className="text-sm min-[800px]:text-base leading-relaxed">{reason.description}</CardDescription>
                 </CardContent>
               </Card>
             </motion.div>
@@ -84,8 +84,9 @@ export function WhyChooseSection() {
         animate={{ opacity: 1, transform: "translateY(0px)", filter: "blur(0px)" }}
         transition={{ duration: 1, delay: 0.6, ease: [0.7, -0.63, 0.24, 0.99] }}
         viewport={{ once: true }}
+        className="w-full min-[480px]:w-auto"
       >
-        <Button className="flex bg-[#34623c] text-white hover:bg-[#34623c]" asChild>
+        <Button className="flex w-full min-[480px]:w-auto justify-center bg-[#34623c] text-white hover:bg-[#34623c]" asChild>
           <Link href="/book">
             Get a free quote
             <ArrowRight />

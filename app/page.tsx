@@ -77,7 +77,7 @@ export default function Home() {
         icon: <Droplets />,
       },
       {
-        title: "Gutter and Roof Cleaning",
+        title: "Gutter & Roof",
         description: "Roof and gutter clearing to reduce buildup and overflow.",
         icon: <House />,
       },
@@ -325,7 +325,7 @@ export default function Home() {
               filter: 'blur(0px)' }}
             transition={{ duration: 1, delay: 0.5, ease: [.7,-0.63,.24,.99] }}
             viewport={{ once: true }}
-            className="flex items-center justify-center flex-col gap-4 mt-10 bg-foreground/5 w-full p-16 pb-4 rounded-2xl"
+            className="flex w-full flex-col items-center justify-center gap-4 rounded-2xl bg-foreground/5 p-6 pb-4 mt-10 sm:p-10 lg:p-16"
             >
                                   <motion.div
                         ref={badgeRef}
@@ -351,14 +351,16 @@ export default function Home() {
                             </motion.span>
                         )}
                     </motion.div>
-            <h3 className="text-2xl font-bold text-center">Ready to transform your lawn?</h3>
-            <Button className="flex bg-[#34623c] text-white hover:bg-[#34623c]" asChild>
+            <h3 className="max-w-[22rem] text-center text-3xl font-bold leading-tight sm:max-w-none sm:text-2xl">Ready to transform your lawn?</h3>
+            <Button className="flex w-full max-w-[16rem] bg-[#34623c] text-white hover:bg-[#34623c] sm:w-auto sm:max-w-none" asChild>
               <Link href={'/book'}>
                 Get a free quote
                 <ArrowRight />
               </Link>
             </Button>
-            <Badge className="mt-8 flex flex-row gap-2"><BadgeCheckIcon size={16}/> Trusted by Northern Beaches Locals</Badge>
+            <Badge className="mt-8 inline-flex w-full max-w-[18rem] items-start justify-center gap-2 whitespace-normal break-words text-center sm:w-auto sm:max-w-full sm:justify-start sm:text-left">
+              <span className="min-w-0">Trusted by Northern Beaches Locals</span>
+            </Badge>
           </motion.div>
 
         </div>
