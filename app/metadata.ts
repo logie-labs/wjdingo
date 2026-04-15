@@ -1,34 +1,60 @@
 import type { Metadata } from "next";
 
+const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+
 export const metadata: Metadata = {
-  title: "W&J Dingo Lawn Care | Professional Lawn Mowing & Garden Maintenance NSW",
+  metadataBase: new URL(configuredSiteUrl),
+  title: "Beaches Backyard Maintenance | Lawn Care, Garden Maintenance, Pressure Washing & Gutter Cleaning NSW",
   icons: {
     icon: "/favicon.ico",
   },
   description:
-    "W&J Dingo Lawn Care delivers expert lawn mowing, garden maintenance and landscaping services across New South Wales. Book online for fast, reliable and affordable yard care today!",
+    "Beaches Backyard Maintenance offers lawn care, garden maintenance, pressure washing, and gutter cleaning across NSW. Fast, reliable, and affordable outdoor maintenance services.",
   keywords: [
-    "lawn care NSW",
-    "lawn mowing service",
+    "beaches backyard maintenance",
+    "lawn care",
     "garden maintenance",
-    "landscaping NSW",
-    "yard cleanup",
-    "grass cutting",
-    "hedge trimming",
-    "professional lawn care",
+    "pressure washing",
+    "gutter cleaning",
+    "lawn care NSW",
+    "garden maintenance NSW",
+    "pressure washing NSW",
+    "gutter cleaning NSW",
   ],
-  robots: "index, follow",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "W&J Dingo Lawn Care | Professional Lawn Mowing & Garden Maintenance NSW",
+    title: "Beaches Backyard Maintenance | Lawn Care, Garden Maintenance, Pressure Washing & Gutter Cleaning",
     description:
-      "Expert lawn mowing and garden maintenance across NSW. Fast, reliable and affordable yard care from W&J Dingo Lawn Care—book your service now!",
-    url: "wjdingo.com",
+      "Professional lawn care, garden maintenance, pressure washing, and gutter cleaning in NSW. Book Beaches Backyard Maintenance today.",
+    url: "/",
     type: "website",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1708671397338-e286757bc6b5?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        alt: "Lawn mowing and garden maintenance service in NSW",
+        url: "/splash.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Lawn care and outdoor maintenance services by Beaches Backyard Maintenance",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Beaches Backyard Maintenance | Lawn Care, Garden Maintenance, Pressure Washing & Gutter Cleaning",
+    description:
+      "Lawn care, garden maintenance, pressure washing, and gutter cleaning across NSW.",
+    images: ["/splash.jpg"],
   },
 };

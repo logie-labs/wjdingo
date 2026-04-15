@@ -38,7 +38,7 @@
 
 /* Light theme hero */
 .light .hero {
-  background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,1)),
+  background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,1)),
               url('../public/splash.jpg');
   background-size: cover;
   background-position: center;

@@ -76,14 +76,14 @@ function Navbar() {
             href="/book"
             className="w-full h-fit justify-center items-center flex"
           >
-            <div className="w-full justify-center items-center gap-2 h-12 flex bg-[#406e23] group-hover:bg-[#365e1f] transition-colors text-white p-2 text-sm font-medium">
+            <div className="w-full justify-center items-center gap-2 h-12 flex bg-[#34623c] group-hover:bg-[#2a4d32] transition-colors text-white p-2 text-sm font-medium">
               <span>Limited time sale, get 10% off!</span>
             </div>
           </Link>
 
           <div
             onClick={handleCloseBanner}
-            className="h-12 w-12 flex items-center absolute right-0 justify-center bg-[#406e23] group-hover:bg-[#365e1f] cursor-pointer hover:scale-120 transition-all"
+            className="h-12 w-12 flex items-center absolute right-0 justify-center bg-[#34623c] group-hover:bg-[#2a4d32] cursor-pointer hover:scale-120 transition-all"
           >
             <X className="transition-all text-white" />
           </div>
@@ -97,10 +97,17 @@ function Navbar() {
           suppressHydrationWarning
         >
           <div className="w-[60%] flex items-center justify-between nav-bar">
-            <a className="font-bold text-xl" href="/">W&J DINGO LAWN CARE</a>
+            <a className="font-bold text-xl" href="/">BEACHES BACKYARD MAINTENANCE</a>
             <Burger />
             <NavigationMenu className="nav-buttons">
               <NavigationMenuList>
+                <NavigationMenuItem>
+                  <Link href="/" legacyBehavior passHref>
+                    <NavigationMenuLink className={"bg-transparent"}>
+                    <span className="font-medium">Home</span>
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
                 <NavigationMenuItem>
                   <Link href="/#packages" legacyBehavior passHref>
                     <NavigationMenuLink className={"bg-transparent"}>
@@ -116,10 +123,12 @@ function Navbar() {
                   </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent">Get a Quote</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="bg-[#34623c] text-white hover:bg-[#2a4d32]! focus:bg-[#2a4d32]! data-[state=open]:bg-[#2a4d32]! data-active:bg-[#2a4d32]! text-white!">
+                    Get a Quote
+                  </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid gap-3 p-6 md:w-[300px] lg:w-[600px] lg:grid-cols-[.75fr_1fr]">
-                      <li className="row-span-4">
+                    <ul className="grid gap-3 p-6 md:w-[300px] lg:w-[800px] lg:grid-cols-[.75fr_1fr]">
+                      <li className="row-span-5">
                         <NavigationMenuLink asChild>
                           <a
                             className="flex h-full w-full select-none flex-col rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md justify-center"
@@ -129,22 +138,25 @@ function Navbar() {
                               Get a free quote
                             </div>
                             <p className="text-sm leading-tight text-muted-foreground">
-                              Personalized quote for your lawn care needs.
+                              Personalized quote for your lawn care and maintenance needs.
                             </p>
                           </a>
                         </NavigationMenuLink>
                       </li>
-                      <ListItem href="/book?package=basic" title="Basic Maintenance">
-                        Basic maintenance package for regular upkeep of your lawn.
+                      <ListItem href="/book?package=basic" title="Basic Package">
+                        Mowing, edging, and leaf blowing for regular lawn upkeep.
                       </ListItem>
-                      <ListItem href="/book?package=monthly" title="Monthly Care Plan">
-                        Monthly care plan for comprehensive lawn maintenance.
+                      <ListItem href="/book?package=greenery-garden" title="Greenery Garden Package">
+                        Weeding, hedging, trimming, mulching, and planting services.
                       </ListItem>
-                      <ListItem href="/book?package=greenery" title="Greenery Package">
-                        Greenery package for enhanced lawn aesthetics and health.
+                      <ListItem href="/book?package=lawn-rejuvenation" title="Lawn Rejuvenation">
+                        Lawn aeration, seeding, and fertilising for tired lawns.
                       </ListItem>
-                      <ListItem href="/book?package=full" title="Full Garden Maintenance">
-                        Full garden maintenance package for complete care.
+                      <ListItem href="/book?package=pressure-washing" title="Pressure Washing Package">
+                        Professional pressure cleaning for driveways, paths, and roofs.
+                      </ListItem>
+                      <ListItem href="/book?package=gutter-cleaning-roof" title="Gutter Cleaning Roof Package">
+                        Roof and gutter clearing to maintain proper drainage.
                       </ListItem>
                     </ul>
                   </NavigationMenuContent>

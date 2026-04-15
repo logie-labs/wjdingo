@@ -38,7 +38,12 @@ export default function About() {
           <div className="w-[40%] h-full justify-center flex flex-col max-[900px]:w-[90%]">
             <motion.div className="gap-1 flex flex-col"  initial={{ opacity: 0, transform: 'translateX(-30px)', filter: 'blur(10px)' }} whileInView={{ opacity: 1, transform: 'translateX(0px)', filter: 'blur(0px)' }} transition={{ duration: 1, ease: [.7,-0.63,.24,.99]}}>
               <h1 className="text-6xl font-bold">About Us</h1>
-              <p className="">W&J DINGO LAWN CARE is a locally owned and operated lawn care business run by two Year 12 students based on Sydney’s Northern Beaches. We’re passionate about providing reliable, high-quality lawn and garden maintenance at affordable prices. As young locals, we take pride in every job big or small and treat your lawn like it’s our own. Whether you need regular mowing, edging, clean-ups, or basic garden care, we’re here to make your outdoor space look its best.</p>
+              <p className="">Beaches Backyard Maintenance is a locally owned and operated lawn care business 
+                built by two keen young adults with years of hands-on experience. Based on Sydney's Northern Beaches, 
+                we're committed to delivering reliable, high quality lawn and garden maintenance at affordable prices. 
+                We bring genuine passion and expertise to every project, from routine maintenance to full garden 
+                transformations, treating your outdoor space with the same care we'd give our own. Your satisfaction 
+                and the quality of our work are what drive us.</p>
             </motion.div>
           </div>
           <motion.div className="w-[60%] h-full p-12 max-h-[700px] max-[900px]:w-[90%] max-[900px]:p-0" initial={{ opacity: 0, scale: 0.95, filter: 'blur(10px)' }} whileInView={{ opacity: 1,  scale: 1, filter: 'blur(0px)' }} transition={{ duration: 1, delay: 0.3, ease: [.7,-0.63,.24,.99]}}>

@@ -3,11 +3,8 @@
 import * as React from "react"
 import Link from "next/link"
 
-import { delay, easeInOut, motion } from "framer-motion"
+import { motion } from "framer-motion"
 import { FooterItem } from "./footer-item"
-import { FooterButton } from "./footer-button" 
-import { Button } from "@/components/ui/button"
-import { del } from "framer-motion/client"
 
 const staggerContainer = {
   hidden: {},
@@ -26,13 +23,14 @@ const staggerItem = {
     x: 0, 
     transition: { 
       duration: 2, 
-      ease: [0, .87, .33, 1] 
+      ease: [0, .87, .33, 1] as const
     } 
   },
 };
 
 export function Footer() {
   const [currentYear, setCurrentYear] = React.useState(new Date().getFullYear());
+  const [siteHost, setSiteHost] = React.useState("your-site.com");
 
   React.useEffect(() => {
     async function fetchYear() {
@@ -56,6 +54,10 @@ export function Footer() {
     }
 
     fetchYear();
+
+    if (typeof window !== "undefined") {
+      setSiteHost(window.location.host);
+    }
   }, []);
 
   // Define your sections and items as arrays for easy mapping
@@ -63,10 +65,11 @@ export function Footer() {
     {
       title: "Packages",
       items: [
-        <FooterItem key="basic" name="Basic Maintenance" href="/book?package=basic" />,
-        <FooterItem key="monthly" name="Monthly Care Plan" href="/book?package=monthly" />,
-        <FooterItem key="greenery" name="Greenery Package" href="/book?package=greenery" />,
-        <FooterItem key="full" name="Full Garden Maintenance" href="/book?package=full" />,
+        <FooterItem key="basic" name="Basic Package" href="/book?package=basic" />,
+        <FooterItem key="greenery-garden" name="Greenery Garden Package" href="/book?package=greenery-garden" />,
+        <FooterItem key="lawn-rejuvenation" name="Lawn Rejuvenation" href="/book?package=lawn-rejuvenation" />,
+        <FooterItem key="pressure-washing" name="Pressure Washing Package" href="/book?package=pressure-washing" />,
+        <FooterItem key="gutter-cleaning-roof" name="Gutter Cleaning Roof Package" href="/book?package=gutter-cleaning-roof" />,
       ],
     },
     {
@@ -92,25 +95,25 @@ export function Footer() {
     <footer className="w-full p-16 flex gap-6 flex-col max-[1300px]:p-5 max-[1300px]:flex-wrap box-border" suppressHydrationWarning>
       <div className="w-full flex gap-6 flex-row max-[1300px]:flex-wrap ">
         <motion.div
-          className="footer-column flex flex-col w-full min-w[200px] bg-transparent rounded-xl p-2 items-center justify-center"
+          className="footer-column flex w-full min-w-50 items-center justify-center p-2"
           initial={{ opacity: 0, scale: 0.9, filter: 'blur(5px)' }}
           whileInView={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
           transition={{ duration: 0.5, delay: 0 }}
           viewport={{ once: true }}
         >
-          <img className="h-40 rounded-full shadow-2xl" src="/logo.jpg" alt="logo" />
+          <img className="h-40 w-40 object-contain" src="/logo.png" alt="logo" />
         </motion.div>
 
-        {sections.map((section, idx) => (
+        {sections.map((section) => (
           <motion.div
             key={section.title}
-            className="footer-column flex flex-col w-full min-w[200px]"
+            className="footer-column flex flex-col w-full min-w-50"
             variants={staggerContainer}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
           >
-            <strong className="mb-2 pb-1 border-b-1 border-solid">{section.title}</strong>
+            <strong className="mb-2 pb-1 border-b border-solid">{section.title}</strong>
             {section.items.map((item, i) => (
               <motion.div key={i} variants={staggerItem}>
                 {item}
@@ -120,7 +123,7 @@ export function Footer() {
         ))}
       </div>
 
-      <div className="w-full h-[20px] flex flex-row gap-3 items-center justify-center opacity-30 select-none">
+      <div className="w-full h-5 flex flex-row gap-3 items-center justify-center opacity-30 select-none">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -135,8 +138,8 @@ export function Footer() {
           transition={{ duration: 0.7, delay: 0.1, ease: [.7, 0, .24, 1.5] }}
           viewport={{ once: true }}
         >
-          <Link href={'#'} className="hover:underline">
-            wjdingo.com
+          <Link href={'/'} className="hover:underline">
+            {siteHost}
           </Link>
         </motion.div>
       </div>

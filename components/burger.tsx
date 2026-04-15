@@ -26,7 +26,7 @@ function Burger() {
           <MenuIcon />
         </Button>
       </DrawerTrigger>
-      <DrawerContent className="z-[9999]">
+      <DrawerContent className="z-9999">
         <div className="mx-auto w-full">
           <DrawerHeader hidden>
             <DrawerTitle>Move Goal</DrawerTitle>
@@ -35,7 +35,7 @@ function Burger() {
           <div className="flex flex-col gap-4 p-4 w-full">
             <DrawerClose asChild>
               <Button className="flex flex-row gap-2 items-center justify-start burger-item" variant={"ghost"} asChild>
-                <Link href='/' className="font-[500]">
+                <Link href='/' className="font-medium">
                   <HomeIcon className="opacity-50 items-center flex justify-center" size={16} />
                   Home
                 </Link>
@@ -43,7 +43,7 @@ function Burger() {
             </DrawerClose>
             <DrawerClose asChild>
               <Button className="flex flex-row gap-2 items-center justify-start burger-item" variant={"ghost"} asChild>
-                <Link href='/#packages' className="font-[500]">
+                <Link href='/#packages' className="font-medium">
                   <Package className="opacity-50 items-center flex justify-center" size={16} />
                   Packages
                 </Link>
@@ -51,7 +51,7 @@ function Burger() {
             </DrawerClose>
             <DrawerClose asChild>
               <Button className="flex flex-row gap-2 items-center justify-start burger-item" variant={"ghost"} asChild>
-                <Link href='/about' className="font-[500]">
+                <Link href='/about' className="font-medium">
                   <Info className="opacity-50 items-center flex justify-center" size={16} />
                   About Us
                 </Link>
@@ -67,7 +67,7 @@ function Burger() {
             </DrawerClose> */}
             <DrawerClose asChild>
               <Button className="flex flex-row gap-2 items-center justify-start burger-item" variant={"ghost"} asChild>
-                <Link href='/book' className="font-[500]">
+                <Link href='/book' className="font-medium">
                   <Book className="opacity-50 items-center flex justify-center" size={16} />
                   Get a free quote
                 </Link>

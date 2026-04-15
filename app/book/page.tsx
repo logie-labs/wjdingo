@@ -47,7 +47,13 @@ const formSchema = z.object({
   phone: z.string().nonempty("Phone is required."),
   email: z.string().email("Must be a valid email."),
   address: z.string().nonempty("Address is required."),
-  detailType: z.enum(["basic", "monthly", "greenery", "full"], {
+  detailType: z.enum([
+    "basic",
+    "greenery-garden",
+    "lawn-rejuvenation",
+    "pressure-washing",
+    "gutter-cleaning-roof",
+  ], {
     errorMap: () => ({ message: "Please choose a package." }),
   }),
   extra: z.string().optional(),
@@ -133,10 +139,10 @@ function BookContent() {
           <SendIcon className="mb-4 opacity-50" size={48} />
           <h1 className="text-2xl font-bold text-center">Quote Sent</h1>
           <p className="text-center text-lg mb-6">
-            Thanks for your request. We'll be in touch soon.
+            Thanks for getting in touch. We'll be in touch soon.
           </p>
           <Link href="/">
-            <Button className="bg-[#406e23] text-white hover:bg-[#365e1f]">
+            <Button className="bg-[#34623c] text-white hover:bg-[#34623c]">
               Home
             </Button>
           </Link>
@@ -237,14 +243,17 @@ function BookContent() {
                           </SelectTrigger>
                           <SelectContent>
                             <SelectItem value="basic">Basic Package</SelectItem>
-                            <SelectItem value="monthly">
-                              Monthly Care Plan
+                            <SelectItem value="greenery-garden">
+                              Greenery Garden Package
                             </SelectItem>
-                            <SelectItem value="greenery">
-                              Greenery Package
+                            <SelectItem value="lawn-rejuvenation">
+                              Lawn Rejuvenation
                             </SelectItem>
-                            <SelectItem value="full">
-                              Full Garden Maintenance
+                            <SelectItem value="pressure-washing">
+                              Pressure Washing Package
+                            </SelectItem>
+                            <SelectItem value="gutter-cleaning-roof">
+                              Gutter Cleaning Roof Package
                             </SelectItem>
                           </SelectContent>
                         </Select>
@@ -281,7 +290,7 @@ function BookContent() {
                     type="submit"
                     ref={submitBtnRef}
                     disabled={isLoading}
-                    className="bg-[#406e23] text-white w-30 hover:bg-[#365e1f] disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="bg-[#34623c] text-white w-30 hover:bg-[#34623c] disabled:opacity-70 disabled:cursor-not-allowed"
                     onClick={(e) => {
                       /* prevent double submits if needed */
                       if (isLoading) e.preventDefault()
